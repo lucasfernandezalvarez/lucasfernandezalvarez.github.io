@@ -4,21 +4,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cifrador Cesar</title>
+    <title>Calculadora de Pasos de Exposición</title>
     <link href="index.css" rel="stylesheet " />
     <script src="index.js" type="text/javascript" defer></script>
 </head>
 <body>
     <main>
-        <h1>Cifrador Cesar.</h1>
+        <h1>Calculadora de Pasos de Exposición</h1>
         <form id="cifrador" autocomplete="off">
             <input id="input-original" spellcheck="false" placeholder="Ingrese el texto" type="text" name="text">
+        
+            <table>
+				<tr>
+					<td>
+						DIAFRAGMA
+					</td>
+					
+					<td>
+						VELOCIDAD
+					</td>
+					
+					<td>
+						ISO
+					</td>
+					
+					<td>
+						EXPOSICIÓN
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<select id="checkF">
+							<option value="F">FIJO</option>
+							<option value="V">VARIABLE</option>
+						</select>
+					</td>
+					
+					<td>
+						<select id="checkV">
+							<option value="F">FIJO</option>
+							<option value="V">VARIABLE</option>
+						</select>
+
+					</td>
+					
+					<td>
+						<select id="checkISO">
+							<option value="F">FIJO</option>
+							<option value="V">VARIABLE</option>
+						</select>
+					</td>
+					
+					<td><input type="button" onclick="calcular()" value="CALCULAR"/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<select name="df" id="df"/>
+					</td>
+					
+					<td>
+						<select id="vel"/>
+					</td>
+					
+					<td>
+						<select id="is"/>
+					</td>
+					
+					<td>
+						<select id="expo">
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td id="resDf">
+						&nbsp;
+					</td>
+					
+					<td id="resVel">
+						&nbsp;
+					</td>
+					
+					<td id="resIso">
+						&nbsp;
+					</td>
+					
+					<td id="resExpo">
+						&nbsp;
+					</td>
+				</tr>
+			</table>
+        
+        
         </form>
-        <div id="resultado"></div>
-        <div class="rango">
-            <input id="rango" type="range" value="10" min="1" max="20" oninput="this.nextElementSibling.value = this.value">
-            <output>10</output>
-        </div>
+       
     </main>
 </body>
 </html>
