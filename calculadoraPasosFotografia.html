@@ -182,12 +182,12 @@ function validar(){
 	font-family: "Fira Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: xx-large;
+  font-size: 1em;
 }
  input,select{
 
     font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-    font-size: 1em;
+    font-size: 3em;
     width: 100%;
  }
 
@@ -196,7 +196,7 @@ function validar(){
     width: 1em;
     height: 1em;
     vertical-align: middle;
-    padding: 5px;
+
 }
 
 td{
@@ -206,13 +206,12 @@ td{
 </head>
 <body>
     <main>
-        <h1>Calculadora de Pasos de Exposición</h1>
         <form id="calculadora" autocomplete="off">
             <table cellpadding="4">
 				
                 <tr>
                     <td><b>Parámetro</b></td>
-                    <td><b>Modificar</b></td>
+                    <td><b>Valor Fijo</b></td>
                 </tr>
 
                 
@@ -222,13 +221,13 @@ td{
                 <tr>
                     <td><select name="df" id="df"></select></td>
                     <td>
-                        <input type="radio" name="checkF" id="checkFNo" value="N" checked/>No
-                        <input type="radio" name="checkF" id="checkFSi" value="S"/>Sí
+                        <input type="radio" name="checkF" id="checkFNo" value="N" checked/>Sí&nbsp;&nbsp;
+                        <input type="radio" name="checkF" id="checkFSi" value="S"/>No
                      </td>  
                 </tr>               
                  <tr>
                     <td colspan="2">
-                        <div id="resDf"></div>&nbsp;
+                        <div id="resDf"></div>
                     </td>
                    
                 </tr>
@@ -236,26 +235,26 @@ td{
                 <tr>
                     <td><select name="vel" id="vel"></select></td>
                     <td>
-                        <input type="radio" name="checkV" id="checkVNo" value="N" checked/>No
-                        <input type="radio" name="checkV" id="checkVSi" value="S"/>Sí
+                        <input type="radio" name="checkV" id="checkVNo" value="N" checked/>Sí&nbsp;&nbsp;
+                        <input type="radio" name="checkV" id="checkVSi" value="S"/>No
                     </td>               
                 </tr>
                 <tr>
                     <td colspan="2">
-                       <div id="resVel"></div>&nbsp;
+                       <div id="resVel"></div>
                     </td>
                 </tr>
                 
                 <tr>
                     <td><select name="is" id="is"></select><br/><div id="resIso"></div></td>
                     <td>
-                        <input type="radio" name="checkISO" id="checkISONo" value="N" checked/>No
-                        <input type="radio" name="checkISO" id="checkISOSi" value="S"/>Sí
+                        <input type="radio" name="checkISO" id="checkISONo" value="N" checked/>Sí&nbsp;&nbsp;
+                        <input type="radio" name="checkISO" id="checkISOSi" value="S"/>No
                         
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><div id="resIso"></div>&nbsp;</td>
+                    <td colspan="2"><div id="resIso"></div></td>
                 </tr>
 
 
@@ -268,7 +267,7 @@ td{
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><div id="resExpo"></div>&nbsp;</td>
+                    <td colspan="2"><div id="resExpo"></div></td>
                 </tr>
 			</table>
        
