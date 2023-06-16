@@ -135,9 +135,9 @@ function calcular(){
 function getValor(valor, modificado){
     if(modificado != 0){
        if(modificado > 0){
-        return "<center><b>" +  valor + " (+" + modificado + " Pasos)</b></center>";
+        return "<b>" +  valor + " (+" + modificado + " Pasos)</b>";
        }else{
-        return "<center><b>" +  valor + " (" + modificado + " Pasos)</b></center>";
+        return "<b>" +  valor + " (" + modificado + " Pasos)</b>";
        }
     } else{
         return "";
@@ -147,9 +147,9 @@ function getValor(valor, modificado){
 function getValorExpo(valor, modificado){
 
        if(modificado > 0){
-        return "<center><b>" +  valor + "</b></center>";
+        return "<b>" +  valor + "</b>";
        }else{
-        return "<center><b>" +  valor + "</b></center>";
+        return "<b>" +  valor + "</b>";
        }
 }
 
@@ -169,6 +169,40 @@ function validar(){
 }
 
     </script>
+
+    <style>
+        
+        html,body {
+	position: relative;
+	min-height: 100vh;
+	background-color: #E1E8EE;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: xx-large;
+}
+ input,select{
+
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    width: 100%;
+ }
+
+ input[type=radio] {
+    border: 0px;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+td{
+    white-space: nowrap;
+}
+    </style>
 </head>
 <body>
     <main>
@@ -177,64 +211,71 @@ function validar(){
             <table cellpadding="4">
 				
                 <tr>
-                   
-                    <td><b>Cámara</b></td>
+                    <td><b>Parámetro</b></td>
                     <td><b>Modificar</b></td>
-                    <td><b>Resultado</b></td>
-                </tr>
-                <tr>
-                   
-                    <td><hr/></td>
-                    <td><hr/></td>
-                    <td><hr/></td>
-                </tr>
-                <tr>
-                   
-                    
-                    <td><select name="df" id="df"></select></td>
-                    <td>
-                       <input type="radio" name="checkF" id="checkFNo" value="N"/>No
-                       <input type="radio" name="checkF" id="checkFSi" value="S"/>Sí
-                    </td>
-                    <td id="resDf"></td>
-                </tr>
-                
-                <tr>
-                    
-                    
-                    <td><select name="vel" id="vel"></select></td>
-                    <td>
-        
-                            <input type="radio" name="checkV" id="checkVNo" value="N"/>No
-                            <input type="radio" name="checkV" id="checkVSi" value="S"/>Sí
-            
-                    </td>
-                    <td id="resVel"></td>
-                </tr>
-                
-                <tr>
-                    
-                    
-                    <td><select name="is" id="is"></select></td>
-                    <td>
-                        <input type="radio" name="checkISO" id="checkISONo" value="N"/>No
-                        <input type="radio" name="checkISO" id="checkISOSi" value="S"/>Sí
-                    </td>
-                    <td id="resIso"></td>
                 </tr>
 
+                
+           
+                
+                
                 <tr>
-             
-                    
-                    <td><select name="expo" id="expo"></select></td>
+                    <td><select name="df" id="df"></select></td>
                     <td>
-                        <center><input type="button" onclick="calcular()" value="CALCULAR PARÁMETROS"/></center>
+                        <input type="radio" name="checkF" id="checkFNo" value="N" checked/>No
+                        <input type="radio" name="checkF" id="checkFSi" value="S"/>Sí
+                     </td>  
+                </tr>               
+                 <tr>
+                    <td colspan="2">
+                        <div id="resDf"></div>&nbsp;
                     </td>
-                    <td id="resExpo"></td>
+                   
                 </tr>
                 
+                <tr>
+                    <td><select name="vel" id="vel"></select></td>
+                    <td>
+                        <input type="radio" name="checkV" id="checkVNo" value="N" checked/>No
+                        <input type="radio" name="checkV" id="checkVSi" value="S"/>Sí
+                    </td>               
+                </tr>
+                <tr>
+                    <td colspan="2">
+                       <div id="resVel"></div>&nbsp;
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><select name="is" id="is"></select><br/><div id="resIso"></div></td>
+                    <td>
+                        <input type="radio" name="checkISO" id="checkISONo" value="N" checked/>No
+                        <input type="radio" name="checkISO" id="checkISOSi" value="S"/>Sí
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="resIso"></div>&nbsp;</td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td><select name="expo" id="expo"></select></td>
+                    <td>
+                        <center><input type="button" onclick="calcular()" value="CALCULAR"/></center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="resExpo"></div>&nbsp;</td>
+                </tr>
 			</table>
+       
+
             
+
+
         
         </form>
        
