@@ -177,7 +177,7 @@ function validar(){
 function cambioF(valor){
     var valorF = arrF[parseInt(document.getElementById("df").value)]
     document.getElementById("imgF").alt = valorF;
-    document.getElementById("imgF").src = "img/F/F" + valorF + ".png";
+    document.getElementById("imgF").src = "F" + valorF + ".png";
 }
 
 function cambioV(valor){
@@ -186,13 +186,13 @@ function cambioV(valor){
     var valorVIMG = arrVIMG[parseInt(document.getElementById("vel").value)];
     
 
-    document.getElementById("imgV").src = "img/V/V" + valorVIMG + ".png"
+    document.getElementById("imgV").src = "V" + valorVIMG + ".png"
 }
 
 function cambioISO(valor){
     var valorIso = arrIso[parseInt(document.getElementById("is").value)];
     document.getElementById("imgISO").alt = valorIso;
-    document.getElementById("imgISO").src = "img/ISO/ISO" + valorIso + ".png"
+    document.getElementById("imgISO").src = "ISO" + valorIso + ".png"
 }
 
     </script>
@@ -246,7 +246,7 @@ td{
                 
                 
                 <tr>
-                    <td><img src="img/F/F8.png" id="imgF"/>
+                    <td><img src="F8.png" id="imgF"/>
                         </td>
                     <td>
                         <select name="df" id="df" onchange="cambioF(this)"></select><br/><br/>
@@ -271,7 +271,7 @@ td{
                 </tr>
                 
                 <tr>
-                    <td><img src="img/V/V1-60.png" id="imgV"/></td>
+                    <td><img src="V1-60.png" id="imgV"/></td>
                     <td>
                         <select name="vel" id="vel" onchange="cambioV(this)"></select><br/><br/>
                         <input type="radio" name="checkV" id="checkVNo" value="N" checked/>Fijo<br/><br/>
@@ -286,7 +286,7 @@ td{
                 
                 <tr>
                     <td>
-                        <img src="img/ISO/ISO100.png" id="imgISO"/>
+                        <img src="ISO100.png" id="imgISO"/>
                         </td>
                     <td>
                         <select name="is" id="is" onchange="cambioISO(this)"></select><br/><br/>
