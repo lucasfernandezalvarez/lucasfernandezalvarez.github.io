@@ -8,9 +8,10 @@
     <link href="index.css" rel="stylesheet " />
     <script  type="text/javascript" >
 
-var arrV = ["VELOCIDAD","30 s.", "15 s.", "8 s.","4 s.","2 s.", "1 s.", "1/2", "1/4","1/8", "1/15", "1/30","1/60","1/125","1/250","1/500","1/1000","1/2000","1/4000"];         
+var arrV = ["VELOCIDAD", "1/4","1/8", "1/15", "1/30","1/60","1/125","1/250","1/500"];  
+var arrVIMG = ["VELOCIDAD", "1-4","1-8", "1-15", "1-30","1-60","1-125","1-250","1-500"];        
 			
-var arrF = ["DIAFRAGMA","1", "1.4", "2","2.8","4", "5.6", "8", "11","16", "22", "32"];         
+var arrF = ["DIAFRAGMA","1", "1.4", "2","2.8","4", "5.6", "8", "11","16", "22"];         
 
 var arrIso = ["ISO","12800","6400", "3200", "1600", "800","400", "200", "100"]; 
 
@@ -48,7 +49,7 @@ function cargarValores(){
     }
     
     elementoDF.value = "7";
-    elementoV.value ="11"
+    elementoV.value ="5"
     //var elementoDF = parseInt(document.getElementById("df").value);
     //var elementoV = parseInt(document.getElementById("vel").value);
     elementoIso.value = arrIso.length-1;
@@ -144,6 +145,11 @@ function getValor(valor, modificado){
     }
 }
 
+function getImagenF(valor){
+   return "<img src='img/F" + valor + "'/>"
+}
+
+
 function getValorExpo(valor, modificado){
 
        if(modificado > 0){
@@ -166,6 +172,27 @@ function validar(){
 
     return true;
 
+}
+
+function cambioF(valor){
+    var valorF = arrF[parseInt(document.getElementById("df").value)]
+    document.getElementById("imgF").alt = valorF;
+    document.getElementById("imgF").src = "img/F/F" + valorF + ".png";
+}
+
+function cambioV(valor){
+    var valorV = arrV[parseInt(document.getElementById("vel").value)];
+    document.getElementById("imgV").alt = valorV;
+    var valorVIMG = arrVIMG[parseInt(document.getElementById("vel").value)];
+    
+
+    document.getElementById("imgV").src = "img/V/V" + valorVIMG + ".png"
+}
+
+function cambioISO(valor){
+    var valorIso = arrIso[parseInt(document.getElementById("is").value)];
+    document.getElementById("imgISO").alt = valorIso;
+    document.getElementById("imgISO").src = "img/ISO/ISO" + valorIso + ".png"
 }
 
     </script>
@@ -217,16 +244,25 @@ td{
                 </tr>
 
                 
-           
-                
                 
                 <tr>
-                    <td><select name="df" id="df"></select></td>
+                    <td><img src="img/F/F8.png" id="imgF"/>
+                        </td>
                     <td>
-                        <input type="radio" name="checkF" id="checkFNo" value="N" checked/>Sí&nbsp;&nbsp;
-                        <input type="radio" name="checkF" id="checkFSi" value="S"/>No
+                        <select name="df" id="df" onchange="cambioF(this)"></select><br/><br/>
+                        <input type="radio" name="checkF" id="checkFNo" value="N" checked/>Fijo<br/><br/>
+                        <input type="radio" name="checkF" id="checkFSi" value="S"/>Variable
                      </td>  
-                </tr>               
+                </tr> 
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td colspan="2">
+                       
+                    </td>
+                   
+                </tr>              
                  <tr>
                     <td colspan="2">
                         <div id="resDf"></div>
@@ -235,10 +271,11 @@ td{
                 </tr>
                 
                 <tr>
-                    <td><select name="vel" id="vel"></select></td>
+                    <td><img src="img/V/V1-60.png" id="imgV"/></td>
                     <td>
-                        <input type="radio" name="checkV" id="checkVNo" value="N" checked/>Sí&nbsp;&nbsp;
-                        <input type="radio" name="checkV" id="checkVSi" value="S"/>No
+                        <select name="vel" id="vel" onchange="cambioV(this)"></select><br/><br/>
+                        <input type="radio" name="checkV" id="checkVNo" value="N" checked/>Fijo<br/><br/>
+                        <input type="radio" name="checkV" id="checkVSi" value="S"/>Variable
                     </td>               
                 </tr>
                 <tr>
@@ -248,10 +285,13 @@ td{
                 </tr>
                 
                 <tr>
-                    <td><select name="is" id="is"></select><br/><div id="resIso"></div></td>
                     <td>
-                        <input type="radio" name="checkISO" id="checkISONo" value="N" checked/>Sí&nbsp;&nbsp;
-                        <input type="radio" name="checkISO" id="checkISOSi" value="S"/>No
+                        <img src="img/ISO/ISO100.png" id="imgISO"/>
+                        </td>
+                    <td>
+                        <select name="is" id="is" onchange="cambioISO(this)"></select><br/><br/>
+                        <input type="radio" name="checkISO" id="checkISONo" value="N" checked/>Fijo<br/><br/>
+                        <input type="radio" name="checkISO" id="checkISOSi" value="S"/>Variable
                         
                     </td>
                 </tr>
