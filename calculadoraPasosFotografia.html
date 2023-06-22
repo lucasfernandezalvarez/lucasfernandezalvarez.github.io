@@ -15,9 +15,12 @@ var arrF = ["DIAFRAGMA","1", "1.4", "2","2.8","4", "5.6", "8", "11","16", "22"];
 
 var arrIso = ["ISO","12800","6400", "3200", "1600", "800","400", "200", "100"]; 
 
-var arrExpo = ["EXPOSICIÓN", "+5","+4","+3","+2","+1", "0", "-1", "-2","-3","-4","-5"]; 
+var arrExpo = ["EXPOSICIÓN", "+5","+4","+3","+2","+1", " 0", "-1", "-2","-3","-4","-5"]; 
+var arrZona = ["ZONA","X Blanco puro" ,"IX Blanco brillante","VIII Gris / Blanco pálido","VII Gris claro","VI Gris casi claro", "V Gris medio 18%","IV Girs oscuro con textura", "III Gris oscuro con poca textura ", "II Negro con textura","I Negro sin textura","0 Negro puro"]; 
 
 var posExpo = 6;
+
+
 
 
 function cargarValores(){
@@ -43,13 +46,28 @@ function cargarValores(){
         elementoIso.innerHTML += "<option value='"+ i + "'>ISO "+arrIso[i]+"</option>"
     }
     
-    
+    elementoExpo.innerHTML += "<optgroup label='Tonos Altos'>";
     for(var i=1;i<arrExpo.length;i++){ 
-        elementoExpo.innerHTML += "<option value='"+ i + "'>Exp." + arrExpo[i] + "</option>"
+        
+        
+        if(i== 5){
+            elementoExpo.innerHTML += "</optgroup>";
+            elementoExpo.innerHTML += "<optgroup label='Tonos Medios'>";
+
+        } else if(i== 8){
+            elementoExpo.innerHTML += "</optgroup>";
+            elementoExpo.innerHTML += "<optgroup label='Tonos Bajos'>";
+
+        }
+          
+        elementoExpo.innerHTML += "<option value='"+ i + "'>Exp." + arrExpo[i] + " ZONA "+ arrZona[i] + "</option>"
     }
+
+    elementoExpo.innerHTML += "</optgroup>";
     
     elementoDF.value = "7";
-    elementoV.value ="5"
+    elementoV.value ="5";
+    elementoExpo.value ="6";
     //var elementoDF = parseInt(document.getElementById("df").value);
     //var elementoV = parseInt(document.getElementById("vel").value);
     elementoIso.value = arrIso.length-1;
@@ -129,7 +147,7 @@ function calcular(){
     document.getElementById("resDf").innerHTML = getValor("F " +  arrF[elementoDF],cambioDf);	
     document.getElementById("resVel").innerHTML = getValor("v " + arrV[elementoV],cambioV);	
     document.getElementById("resIso").innerHTML = getValor("ISO " + arrIso[elementoIso],cambioIso);
-    document.getElementById("resExpo").innerHTML = getValorExpo("Exp. " + arrExpo[elementoExpo], cambioExpo);
+    document.getElementById("resExpo").innerHTML = getValorExpo("Resultado Exp. " + arrExpo[elementoExpo] + " ZONA " + arrZona[elementoExpo]  , cambioExpo);
     }
 }
 
@@ -166,7 +184,7 @@ function validar(){
         !document.getElementById("checkISOSi").checked
 
     ){
-        alert("No se puede realizar ningún cambio. No hay ningún valor modificable");
+        alert("No se puede realizar ningún cambio. No hay ningún parámetro variable");
         return false;
     }
 
@@ -248,15 +266,7 @@ td{
                         <input type="radio" name="checkF" id="checkFSi" value="S"/>Variable
                      </td>  
                 </tr> 
-                <tr>
-                    <td>
-                        
-                    </td>
-                    <td colspan="2">
-                       
-                    </td>
-                   
-                </tr>              
+                         
                  <tr>
                     <td colspan="2">
                         <div id="resDf"></div>
@@ -294,10 +304,8 @@ td{
                 </tr>
 
                 <tr>
-                    <td><select name="expo" id="expo"></select></td>
-                    <td>
-                        
-                    </td>
+                    <td colspan="2"><select name="expo" id="expo"></select></td>
+                    
                 </tr>
                 <tr>
                     <td colspan="2"><div id="resExpo"></div></td>
